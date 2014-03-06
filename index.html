@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>  <html class="ie ie6 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 7]>     <html class="ie ie7 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 8]>     <html class="ie ie8 lte9 lte8"> <![endif]-->
+<!--[if IE 9]>     <html class="ie ie9 lte9"> <![endif]-->
+<!--[if gt IE 9]>  <html> <![endif]-->
+<!--[if !IE]><!--> <html>             <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>skrollr (practice demo)</title>
+
+  <link href="assets/stylesheets/fixed-positioning.css" rel="stylesheet" type="text/css" />
+  <link href="assets/stylesheets/application.css" rel="stylesheet" />
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="assets/javascripts/jquery.queryloader2.js"></script>
+  <script>
+  $(function () {
+    $("body").queryLoader2({
+      backgroundColor: "#FFF",
+      barColor: "#FF0000"
+    });
+  });
+  </script>
+</head>
+
+<body>
+  <div id="announcement">Images and main javascript functions is copied from <a href='http://titanic.q-music.be/' target='_blank'>http://titanic.q-music.be/</a>. This page is just practicing implementing parallax scrolling via skrollr.</div>
+
+  <!-- 觀察用: 捲軸偏移量 -->
+  <div id="console"></div>
+
+  <div class="background"></div>
+
+  <div id="wrapper">
+
+    <!-- 船容器 -->
+    <!-- (container 容器是一直 fixed 在此處，其中的船體 #boat 才會隨著捲動改變 top & left 位置) -->
+    <div class="boat_container">
+      <!-- 船 -->
+      <div id="boat" data-44="top: 560px; left: 565px;" data-500="left: 665px;" data-1000="left: 400px;" data-1300="left: 200px;" data-3000="top: 400px;" data-5000="left: 600px; top: 550px;">
+        <div id="boat-object"></div><!-- 船本體 -->
+        <div id="boat-lights"></div><!-- 船燈 -->
+      </div>
+    </div>
+
+    <div class="fixed_me" data-6000="top:0%;" data-8000="top: -100%;">
+      <h1>Fixed!</h1>
+    </div>
+
+    <!-- 場景 1 -->
+    <div id="stage1" class="stage-container">
+      <div id="container1" class="main-container">
+        <img src="assets/images/554x586.gif" style="position: absolute;top: 0px; left: 590px; width: 502px;"/>
+        <div style="top:0;">
+          <img src="assets/images/350x150.gif" style="position:absolute;left:111px;top:214px;opacity:0;filter:alpha(opacity=0);" data-44="top:214px;left:111px; opacity:0;" data-200="top:300px;left:300px;opacity:0.5;" data-650="top:650px;opacity:1;" data-3000="top: -300px;" />
+        </div>
+      </div>
+      <img src="assets/images/200x100.gif" style="position: absolute; bottom: 1100px; left: 500px;" />
+
+      <div id="fish_a" class="fish" data-0="left: 300px;" data-500="left: 400px;"></div>
+      <div id="fish_b" class="fish" data-0="left: 500px;" data-550="left: 670px;"></div>
+      <div id="fish_c" class="fish" data-0="left: 300px;" data-500="left: 500px;"></div>
+
+      <div class="arrow"><a href="#stage3">Down</a></div>
+    </div>
+
+    <!-- 場景 2 -->
+    <div id="stage2" class="stage-container">
+      <div id="container2" class="main-container">
+        <img src="assets/images/600x400.gif" style="position: absolute;top: 0px;left: 590px;width:502px" data-9000="top: 0px; left: 200px;" data-10000="top: -300px; left: 600px;" />
+        <img src="assets/images/300x400.gif" style="position:absolute;left:111px;top:214px" data-8500="top:214px;left:111px;" data-10000="top:300px;left:300px;" />
+      </div>
+    </div>
+
+    <!-- 場景 3 -->
+    <div id="stage3" class="stage-container" data-11000="left: 100%; top: 0%;" data-12000="left: 0%;" data-12500="" data-16000="top: -100%;">
+      <h1>right to left</h1>
+      <div class="arrow"><a href="#stage1">Top</a></div>
+    </div>
+
+  </div>
+
+  <script src="assets/javascripts/skrollr.min.js"></script>
+  <script src="assets/javascripts/jquery.easing.1.3.js"></script>
+  <script src="assets/javascripts/jquery.scrollTo-min.js"></script>
+  <script src="assets/javascripts/jquery.mousewheel.js"></script>
+  <script src="assets/javascripts/boat.js"></script>
+  <script src="assets/javascripts/main.js"></script>
+
+  <!--[if lt IE 9]>
+  <script type="text/javascript" src="assets/javascripts/skrollr.ie.min.js"></script>
+  <![endif]-->
+
+</body>
+</html>
